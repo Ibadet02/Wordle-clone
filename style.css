@@ -1,0 +1,90 @@
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.container{
+    height: 100vh;
+    background: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game-board{
+    display: grid;
+    grid-template-rows: repeat(var(--grid-row),var(--cell-size));
+    grid-template-columns: repeat(var(--grid-column),var(--cell-size));
+    gap: var(--cell-gap);
+    background: #ccc;
+    padding: var(--cell-gap);
+    border-radius: .5vmin;
+    position: relative;
+}
+span{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    border-radius: .5vmin;
+}
+.toggle-shake{
+    animation: shake .4s linear;
+}
+.toggle-letter{
+    animation: letterAppear .2s linear;
+}
+.c1{
+   width: 100px;
+   height: 100px;
+   background-color: red; 
+}
+.c2{
+    position: absolute;
+}
+.c3{
+    background-color: blue;
+}
+.cell{
+    background: #aaa;
+    border-radius: .5vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    user-select: none;
+}
+
+@keyframes shake{
+    0%{
+        transform: translate(0);
+    }
+    20%,
+    40%,
+    60%,
+    80%{
+        transform: translate(.2em);
+    }
+    10%,
+    30%,
+    50%,
+    70%{
+        transform: translate(-.2em);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+@keyframes letterAppear{
+    0%{
+        transform: scale(0);
+    }
+    90%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
